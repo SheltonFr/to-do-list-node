@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,20 @@
     <script src="script.js" defer></script>
     <title>To Do List</title>
 </head>
+
 <body>
-    <h1>Hello World Ejs</h1>
+    <form action="/create" method="post">
+        <input type="text" name="task" id="task" placeholder="Insira uma tarefa">
+        <button type="submit" id="addButton">Adicionar</button>
+    </form>
+
+    <ul>
+        <% taskList.forEach((task)=> { %>
+            <li>
+                <%= task.task %> | <%= task.date.toLocaleDateString('pt-br')%>
+            </li>
+        <% }); %>
+    </ul>
 </body>
+
 </html>
