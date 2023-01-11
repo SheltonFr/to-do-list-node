@@ -11,18 +11,37 @@
 </head>
 
 <body>
-    <form action="/create" method="post">
-        <input type="text" name="task" id="task" placeholder="Insira uma tarefa">
-        <button type="submit" id="addButton">Adicionar</button>
-    </form>
 
-    <ul>
-        <% taskList.forEach((task)=> { %>
-            <li>
-                <%= task.task %> | <%= task.date.toLocaleDateString('pt-br')%>
-            </li>
-        <% }); %>
-    </ul>
+
+    <header>
+
+        <% if(!task) { %>
+            <form action="/create" method="post">
+                <input type="text" name="task" id="task" placeholder="Insira uma tarefa">
+                <button type="submit" id="addButton">Adicionar</button>
+            </form>
+
+        <% } else { %>
+
+            <form action="/updateTask/<%= task._id %>" method="post">
+                <input type="text" name="task" id="task" value="<%= task.task%>">
+                <button type="submit" id="addButton">Actualizar</button>
+            </form>
+        <% } %>
+    </header>
+
+    <section id="tasks">
+        <ul>
+            <% taskList.forEach((task)=> { %>
+                <li>
+
+                    <%= task.task %> | <%= task.date.toLocaleDateString('pt-br')%>
+                        <a href="/getById/<%= task._id%>">Editar</a>
+                        <a href="">Apagar</a>
+                </li>
+                <% }); %>
+        </ul>
+    </section>
 </body>
 
 </html>
