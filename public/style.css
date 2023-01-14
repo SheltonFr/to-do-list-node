@@ -222,3 +222,41 @@ a#yes:hover {
     color: #202024;
     background-color: #00aa2a;
 }
+
+
+.message {
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: auto;
+  transition: all .3s ease-in-out;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.message-danger {
+  background-color: rgb(255, 197, 197);
+  color: #8a0000;
+}
+
+.message-success {
+  background-color: rgb(197, 255, 214);
+  color: #008a1e;
+}
+
+span#close-message {
+  cursor: pointer;
+  font-size: 2rem;
+  transition: .3s;
+  padding-left: 2rem;
+}
+
+span#close-message:hover {
+  color: red;
+}
